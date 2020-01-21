@@ -27,35 +27,15 @@
           </tr>
           </thead>
           <tbody>
-          <tr>
+          <tr *ngFor="let user of users$ | async">
             <th scope="row">
               <button class="btn btn-sm btn-danger"><span class="fa fa-remove"></span></button>
               &nbsp;
               <button class="btn btn-sm btn-info"><span class="fa fa-edit"></span></button>
             </th>
-            <td>John</td>
-            <td>Doe</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">
-              <button class="btn btn-sm btn-danger"><span class="fa fa-remove"></span></button>
-              &nbsp;
-              <button class="btn btn-sm btn-info"><span class="fa fa-edit"></span></button>
-            </th>
-            <td>John</td>
-            <td>Doe</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">
-              <button class="btn btn-sm btn-danger"><span class="fa fa-remove"></span></button>
-              &nbsp;
-              <button class="btn btn-sm btn-info"><span class="fa fa-edit"></span></button>
-            </th>
-            <td>John</td>
-            <td>Doe</td>
-            <td>@mdo</td>
+            <td>{{user.nom}}</td>
+            <td>{{user.prenom}}</td>
+            <td>{{user.job}}</td>
           </tr>
           </tbody>
         </table>
