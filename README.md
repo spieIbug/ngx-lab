@@ -1,5 +1,6 @@
-# NgxLab
+[![CircleCI](https://circleci.com/gh/meyacine/ngx-lab.svg?style=svg)](https://circleci.com/gh/meyacine/ngx-lab)
 
+# NgxLab
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.23.
 
 # API server
