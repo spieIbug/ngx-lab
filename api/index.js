@@ -36,7 +36,7 @@ app.delete('/users/:id', (request, result) => {
     _.remove(users, {id: request.params.id});
     return result.json(users);
 });
-app.put('/users/:id', (request, result) => {
+app.put('/users/', (request, result) => {
     users = _.map(users, a => a.id === request.params.id ? Object.assign(a, request.body) : a);
     return result.json(users);
 });
