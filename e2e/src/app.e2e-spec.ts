@@ -8,9 +8,9 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('should display ngxLab title', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('ngxLab app is running!');
+    expect(page.getTitleText()).toEqual('ngxLab');
   });
 
   afterEach(async () => {

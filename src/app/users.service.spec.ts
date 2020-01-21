@@ -1,5 +1,5 @@
 import { UsersService } from './users.service';
-import { async, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { UsersResource } from './users.resource';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { of } from 'rxjs';
