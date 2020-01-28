@@ -6,12 +6,10 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { EditableModule } from './editable/editable.module';
-import { NewUserComponent } from './new-user/new-user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NewUserComponent,
   ],
   imports: [
     BrowserModule,
