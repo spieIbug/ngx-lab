@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EditableComponent } from './editable.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 describe('EditableComponent', () => {
   let component: EditableComponent;
@@ -8,9 +10,13 @@ describe('EditableComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        CommonModule,
+        FormsModule,
+      ],
       declarations: [ EditableComponent ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
