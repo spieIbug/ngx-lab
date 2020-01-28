@@ -1,0 +1,6 @@
+<span *ngIf="readonly">{{value}}</span>
+<div class="edit-container" *ngIf="!readonly">
+  <input type="text" [(ngModel)]="innerValue" class="form-control" autofocus>
+  <button class="btn btn-sm btn-default" (click)="switchReadonlyMode()"><span class="fa fa-remove"></span></button>
+  <button class="btn btn-sm btn-success" (click)="submit()"><span class="fa fa-check"></span></button>
+</div>
