@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { User } from '../user.model';
-import { UsersService } from '../users.service';
+import { User } from './users/user.model';
+import { UsersService } from './users/users.service';
 import { switchMap, tap } from 'rxjs/operators';
 
 @Component({
@@ -9,31 +9,6 @@ import { switchMap, tap } from 'rxjs/operators';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
-
-  users$: Observable<User[]>;
-  refresh$ = new BehaviorSubject(false);
-
-  constructor(private usersService: UsersService) {
-  }
-
-  ngOnInit(): void {
-    this.users$ = this.refresh$.pipe(switchMap(() => this.usersService.findAll()));
-  }
-
-  patch($event: string, user: User, key: keyof User) {
-    if (user[key] !== $event) {
-      user[key] = $event;
-      this.usersService.save(user)
-        .pipe(tap(() => this.refresh$.next(true)))
-        .subscribe();
-    }
-  }
-
-  delete(user: User) {
-    this.usersService.deleteById(user.id)
-      .pipe(tap(() => this.refresh$.next(true)))
-      .subscribe();
-  }
+export class DashboardComponent {
 
 }

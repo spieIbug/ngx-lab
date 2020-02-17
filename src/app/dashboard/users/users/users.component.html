@@ -1,0 +1,47 @@
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+  <h1 class="h3 mb-0 text-gray-800">Users</h1>
+</div>
+
+
+<div class="row ngx-lab-container">
+  <div class="col-8 shadow">
+    <div class="card">
+      <div class="card-header card-header-container">
+        <span>Liste des utilisateurs</span>
+        <a class="btn btn-sm btn-info" routerLink="/users/new"><span class="fa fa-plus"></span> Ajouter</a>
+      </div>
+      <div class="card-body">
+        <table class="table table-hover">
+          <thead>
+          <tr>
+            <th scope="col">&nbsp;</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Pr&eacute;nom</th>
+            <th scope="col">Fonction</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let user of users$ | async">
+            <th scope="row">
+              <button class="btn btn-sm btn-danger" (click)="delete(user)"><span class="fa fa-remove"></span></button>
+            </th>
+            <td>
+              <app-editable [value]="user.nom" (valueChange)="patch($event, user, 'nom')"></app-editable>
+            </td>
+            <td>
+              <app-editable [value]="user.prenom" (valueChange)="patch($event, user, 'prenom')"></app-editable>
+            </td>
+            <td>
+              <app-editable [value]="user.job" (valueChange)="patch($event, user, 'job')"></app-editable>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-4">
+    <router-outlet></router-outlet>
+  </div>
+</div>

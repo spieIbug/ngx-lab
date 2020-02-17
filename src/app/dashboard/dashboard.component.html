@@ -1,56 +1,79 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">{{title}}</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<div id="wrapper">
+  <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0">
+    <li class="nav-item active">
+      <a class="nav-link" routerLink="/">
+        <i class="fa fa-dashboard"></i>
+        <span>Dashboard</span></a>
+    </li>
+    <hr class="sidebar-divider my-0">
+    <li class="nav-item active">
+      <a class="nav-link" routerLink="/users">
+        <i class="fa fa-users"></i>
+        <span>Users</span></a>
+    </li>
+    <hr class="sidebar-divider my-0">
+    <li class="nav-item active">
+      <a class="nav-link" routerLink="/login">
+        <i class="fa fa-sign-out"></i>
+        <span>Logout</span></a>
+    </li>
+  </ul>
+  <div id="content-wrapper" class="d-flex flex-column">
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" routerLink="">Home <span class="sr-only">(current)</span></a>
-      </li>
-    </ul>
-  </div>
-</nav>
-<div class="row ngx-lab-container">
-  <div class="col-8">
-    <div class="card">
-      <div class="card-header card-header-container">
-        <span>Liste des utilisateurs</span>
-        <a class="btn btn-sm btn-info" routerLink="/new"><span class="fa fa-plus"></span> Ajouter</a>
+    <!-- Main Content -->
+    <div id="content">
+
+      <!-- Topbar -->
+      <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+        <!--&lt;!&ndash; Topbar Search &ndash;&gt;
+        <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+          <div class="input-group">
+            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <button class="btn btn-primary" type="button">
+                <i class="fas fa-search fa-sm"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+-->
+        <!-- Topbar Navbar -->
+        <ul class="navbar-nav ml-auto">
+
+          <!-- Nav Item - User Information -->
+          <li class="nav-item no-arrow">
+            <a class="nav-link" role="button" aria-haspopup="true" aria-expanded="false">
+              <span class="mr-2 d-none d-lg-inline text-gray-600 small">meyacine</span>
+              <img class="img-profile rounded-circle" src="https://fr.gravatar.com/userimage/103267279/1fefabee0a20228f9de837281c8718d6.png">
+            </a>
+          </li>
+
+        </ul>
+
+      </nav>
+      <!-- End of Topbar -->
+
+      <!-- Begin Page Content -->
+      <div class="container-fluid">
+        <router-outlet></router-outlet>
       </div>
-      <div class="card-body">
-        <table class="table table-hover">
-          <thead>
-          <tr>
-            <th scope="col">&nbsp;</th>
-            <th scope="col">Nom</th>
-            <th scope="col">Pr&eacute;nom</th>
-            <th scope="col">Fonction</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr *ngFor="let user of users$ | async">
-            <th scope="row">
-              <button class="btn btn-sm btn-danger" (click)="delete(user)"><span class="fa fa-remove"></span></button>
-            </th>
-            <td>
-              <app-editable [value]="user.nom" (valueChange)="patch($event, user, 'nom')"></app-editable>
-            </td>
-            <td>
-              <app-editable [value]="user.prenom" (valueChange)="patch($event, user, 'prenom')"></app-editable>
-            </td>
-            <td>
-              <app-editable [value]="user.job" (valueChange)="patch($event, user, 'job')"></app-editable>
-            </td>
-          </tr>
-          </tbody>
-        </table>
-      </div>
+      <!-- /.container-fluid -->
+
     </div>
-  </div>
-  <div class="col-4">
-    <router-outlet></router-outlet>
+    <!-- End of Main Content -->
+
+    <!-- Footer -->
+    <footer class="sticky-footer bg-white">
+      <div class="container my-auto">
+        <div class="copyright text-center my-auto">
+          <span>NGX-LAB 2020</span>
+        </div>
+      </div>
+    </footer>
+    <!-- End of Footer -->
+
   </div>
 </div>
