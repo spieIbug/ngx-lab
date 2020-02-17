@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from '../user.model';
+import { map, switchMap, tap } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
 import { UsersService } from '../users.service';
-import { switchMap, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-users',
@@ -14,11 +15,11 @@ export class UsersComponent implements OnInit {
   users$: Observable<User[]>;
   refresh$ = new BehaviorSubject(false);
 
-  constructor(private usersService: UsersService) {
+  constructor(private route: ActivatedRoute, private usersService: UsersService) {
   }
 
   ngOnInit(): void {
-    this.users$ = this.refresh$.pipe(switchMap(() => this.usersService.findAll()));
+    this.users$ = this.refresh$.pipe(switchMap(() => this.route.data.pipe(map((d: {users: User[]}) => d.users))));
   }
 
   patch($event: string, user: User, key: keyof User) {

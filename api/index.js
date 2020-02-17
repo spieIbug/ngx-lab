@@ -3,10 +3,12 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const _ = require('lodash');
+const delay = require('express-delay');
 require('dotenv').config();
 
 const app = express();
 app.use(bodyParser.json());
+app.use(delay(1000));
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
 
 let users = [
