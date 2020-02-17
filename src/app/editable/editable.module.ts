@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
   ],
   declarations: [ EditableComponent ],
-  exports: [ EditableComponent ],
+  exports: [ EditableComponent, FormsModule, CommonModule ],
 })
 export class EditableModule {
 }
