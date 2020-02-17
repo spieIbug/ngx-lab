@@ -5,6 +5,7 @@ import { EditableModule } from '../../../editable/editable.module';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { CommonModule } from '@angular/common';
+import { UserSearchPipe } from '../user-search.pipe';
 
 describe('UsersComponent', () => {
   let component: UsersComponent;
@@ -13,7 +14,7 @@ describe('UsersComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [EditableModule, RouterTestingModule, HttpClientTestingModule, CommonModule],
-      declarations: [ UsersComponent ]
+      declarations: [ UsersComponent, UserSearchPipe ]
     })
     .compileComponents();
   }));

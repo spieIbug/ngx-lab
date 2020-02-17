@@ -15,6 +15,11 @@
         <table class="table table-hover">
           <thead>
           <tr>
+            <td colspan="4">
+              <input class="form-control" [(ngModel)]="search">
+            </td>
+          </tr>
+          <tr>
             <th scope="col">&nbsp;</th>
             <th scope="col">Nom</th>
             <th scope="col">Pr&eacute;nom</th>
@@ -22,7 +27,7 @@
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let user of users$ | async">
+          <tr *ngFor="let user of users$ | async | userSearch:search">
             <th scope="row">
               <button class="btn btn-sm btn-danger" (click)="delete(user)"><span class="fa fa-remove"></span></button>
             </th>

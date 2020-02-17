@@ -14,6 +14,7 @@ export class UsersComponent implements OnInit {
 
   users$: Observable<User[]>;
   refresh$ = new BehaviorSubject(false);
+  search: string;
 
   constructor(private route: ActivatedRoute, private usersService: UsersService) {
   }
