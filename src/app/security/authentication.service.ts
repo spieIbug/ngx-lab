@@ -26,7 +26,7 @@ export class AuthenticationService {
     return !jwt ? false : !!jwt_decode(jwt).name;
   }
 
-  private getJWT() {
+ getJWT() {
     return localStorage.getItem(AuthenticationService.JWT_KEY);
   }
 

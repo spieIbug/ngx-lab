@@ -5,7 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { SharedModule } from './shared.module';
-import { HasRoleDirective } from './has-role.directive';
+import { HasRoleDirective } from './security/has-role.directive';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthenticationInterceptor } from './security/authentication.interceptor';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,13 @@ import { HasRoleDirective } from './has-role.directive';
     BrowserModule,
     SharedModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthenticationInterceptor,
+      multi: true,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
