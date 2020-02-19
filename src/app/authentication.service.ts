@@ -22,7 +22,20 @@ export class AuthenticationService {
   }
 
   isLogged(): boolean {
-    const jwt = localStorage.getItem(AuthenticationService.JWT_KEY);
+    const jwt = this.getJWT();
     return !jwt ? false : !!jwt_decode(jwt).name;
+  }
+
+  private getJWT() {
+    return localStorage.getItem(AuthenticationService.JWT_KEY);
+  }
+
+  hasRole(role: string): boolean {
+    if (!this.isLogged()) {
+      return false;
+    }
+
+    const jwt = this.getJWT();
+    return jwt_decode(jwt).roles.includes(role);
   }
 }

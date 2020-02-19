@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { SharedModule } from './shared.module';
+import { HasRoleDirective } from './has-role.directive';
 
 @NgModule({
   declarations: [
