@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { DashboardComponent } from './dashboard.component';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthorizationGuard } from '../security/authorization.guard';
 
 const routes: Routes = [
   {
@@ -14,6 +15,10 @@ const routes: Routes = [
       {
         path: 'admin',
         loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
+        canActivate: [ AuthorizationGuard ],
+        data: {
+          roles: [ 'ADMIN' ],
+        }
       },
     ],
   },

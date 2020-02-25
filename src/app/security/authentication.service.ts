@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AuthenticationResource } from './authentication.resource';
 import { Observable } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
+import { intersection, isEmpty } from 'lodash';
 import * as jwt_decode from 'jwt-decode';
 
 @Injectable({
@@ -30,12 +31,12 @@ export class AuthenticationService {
     return localStorage.getItem(AuthenticationService.JWT_KEY);
   }
 
-  hasRole(role: string): boolean {
+  hasRole(roles: string[]): boolean {
     if (!this.isLogged()) {
       return false;
     }
 
     const jwt = this.getJWT();
-    return jwt_decode(jwt).roles.includes(role);
+    return !isEmpty(intersection(jwt_decode(jwt).roles, roles));
   }
 }
