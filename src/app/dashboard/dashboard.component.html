@@ -13,6 +13,14 @@
         <i class="fa fa-users"></i>
         <span>Users</span></a>
     </li>
+    <ng-container *appHasRole="'ADMIN'">
+      <hr class="sidebar-divider my-0">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/admin">
+          <i class="fa fa-cogs"></i>
+          <span>Admin</span></a>
+      </li>
+    </ng-container>
     <hr class="sidebar-divider my-0">
     <li class="nav-item active">
       <a class="nav-link" routerLink="/login">
@@ -47,7 +55,8 @@
           <li class="nav-item no-arrow">
             <a class="nav-link" role="button" aria-haspopup="true" aria-expanded="false">
               <span class="mr-2 d-none d-lg-inline text-gray-600 small">meyacine</span>
-              <img class="img-profile rounded-circle" src="https://fr.gravatar.com/userimage/103267279/1fefabee0a20228f9de837281c8718d6.png">
+              <img class="img-profile rounded-circle"
+                   src="https://fr.gravatar.com/userimage/103267279/1fefabee0a20228f9de837281c8718d6.png">
             </a>
           </li>
 

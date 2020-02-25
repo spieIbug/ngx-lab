@@ -24,6 +24,17 @@ let users = [
 ];
 
 
+app.post('/login', (request, result) => {
+  const {username, password} = request.body;
+  if (username === password && username ==='admin') {
+    return result.json("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkFkbWluIiwiaWF0IjoxNTE2MjM5MDIyLCJyb2xlcyI6WyJBRE1JTiIsIlVTRVIiXX0.qETMObDCoQWD58kz67wQOUzCe8ZxJ5i5t2R9ccI0shk");
+  }
+  if (username === password && username ==='user') {
+    return result.json("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlVzZXIiLCJpYXQiOjE1MTYyMzkwMjIsInJvbGVzIjpbIlVTRVIiXX0.ADtuYXqxYBaZ5oMFyBJi4NrUzA69Lw9JjO3coe-YeGg");
+  }
+  return result.send(401);
+});
+
 app.get('/users', (request, result) => {
     return result.json(users);
 });
