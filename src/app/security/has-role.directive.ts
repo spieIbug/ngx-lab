@@ -7,7 +7,7 @@ import { AuthenticationService } from './authentication.service';
 export class HasRoleDirective implements OnInit {
 
   @Input()
-  appHasRole: string;
+  appHasRole: string[];
 
   constructor(private templateRef: TemplateRef<string>,
               private viewContainerRef: ViewContainerRef,

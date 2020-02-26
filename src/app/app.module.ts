@@ -8,6 +8,8 @@ import { SharedModule } from './shared.module';
 import { HasRoleDirective } from './security/has-role.directive';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthenticationInterceptor } from './security/authentication.interceptor';
+import { NgxsModule } from '@ngxs/store';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { AuthenticationInterceptor } from './security/authentication.interceptor
     AppRoutingModule,
     BrowserModule,
     SharedModule,
+    NgxsModule.forRoot([]),
+    NgxsReduxDevtoolsPluginModule.forRoot(),
   ],
   providers: [
     {

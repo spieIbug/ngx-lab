@@ -8,7 +8,6 @@ require('dotenv').config();
 
 const app = express();
 app.use(bodyParser.json());
-app.use(delay(1000));
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
 
 let users = [
@@ -42,7 +41,9 @@ app.get('/users/:id', (request, result) => {
     return result.json(_.find(users, user => user.id === request.params.id));
 });
 app.post('/users', (request, result) => {
-    users.push(request.body);
+  const user = { ...request.body, id: users.length + 1 + request.body.nom };
+  users.push(user);
+
     return result.json(users);
 });
 app.delete('/users/:id', (request, result) => {
